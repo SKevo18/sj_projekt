@@ -1,0 +1,24 @@
+:root {
+    --bs-primary-rgb: 20, 150, 50;
+    --bs-primary-bg-subtle: rgb(192, 255, 205);
+    --bs-accordion-btn-focus-border-color: rgb(20, 150, 50);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(13, 253, 93, 0.5);
+    --bs-link-color-rgb: 20, 150, 50;
+    --bs-link-hover-color-rgb: 20, 180, 50;
+    --bs-btn-bg: rgb(20, 150, 50);
+    --bs-btn-border-color: var(--bs-btn-bg);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: rgb(20, 180, 50);
+    --bs-btn-hover-border-color: var(--bs-btn-hover-bg);
+    --bs-btn-focus-shadow-rgb: 20, 150, 50;
+    --bs-btn-active-bg: rgb(20, 180, 50);
+    --bs-btn-active-border-color: var(--bs-btn-active-bg);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.slideshow section {
+    display: none;
+}

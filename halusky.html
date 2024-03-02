@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta značky: -->
+    <meta name="author" content="Kevin Svitač" />
+    <meta
+      name="description"
+      content="Recept na tradičné slovenské jedlo s ovčím syrom a slaninou."
+    />
+    <meta name="keywords" content="receptovač, bryndzové, halušky" />
+
+    <title>Recepty</title>
+
+    <!-- Bootstrap: -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Font Awesome: -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- kreatívny bod -->
+    <!-- Cookies okno s pamäťou (localStorage), načítané cez JS: -->
+    <div id="cookiesOkno"></div>
+
+    <!-- Hlavička (načítaná cez JS): -->
+    <header id="header" class="text-center py-3"></header>
+
+    <!-- Začiatok obsahu stránky -->
+
+    <article class="container py-4 mt-5">
+      <div class="container-fluid">
+        <h1>Bryndzové halušky</h1>
+        <p>Tradičné slovenské jedlo s ovčím syrom a slaninou.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-sm mb-4">
+          <img
+            src="img/galeria/halusky.png"
+            class="img-thumbnail"
+            alt="Bryndzové halušky so slaninou"
+          />
+        </div>
+
+        <div class="col-sm">
+          <h2>Ingrediencie</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Ingrediencia</th>
+                <th scope="col">Množstvo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Múka</th>
+                <td>300 g</td>
+              </tr>
+              <tr>
+                <th scope="row">Voda</th>
+                <td>150 ml</td>
+              </tr>
+              <tr>
+                <th scope="row">Soľ</th>
+                <td>1 ČL</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <hr />
+      <div class="container">
+        <h2>Postup</h2>
+        <p>
+          Múku preosejeme do misky, pridáme soľ a vodu. Vypracujeme hladké
+          cesto, ktoré necháme odpočinúť 30 minút.
+        </p>
+        <p>
+          Cesto si rozdelíme na 4 časti, z každej vyvaľkáme valček, ktorý
+          nakrájame na 1 cm dlhé kúsky. Kúsky cesta vytvarujeme do tvaru
+          halušiek.
+        </p>
+        <p>
+          V hrnci si pripravíme osolenú vodu, do ktorej vložíme halušky. Keď
+          vyplávajú na povrch, necháme ich variť ešte 5 minút. Uvarené halušky
+          scedíme a prelejeme studenou vodou.
+        </p>
+        <p>
+          Na panvici si opražíme slaninku, ktorú pridáme k haluškám. Halušky
+          podávame s bryndzou.
+        </p>
+      </div>
+    </article>
+
+    <!-- Koniec obsahu stránky -->
+
+    <footer id="footer" class="text-center py-3"></footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
