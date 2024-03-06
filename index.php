@@ -39,14 +39,8 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- kreatívny bod -->
-    <!-- Cookies okno s pamäťou (localStorage), načítané cez JS: -->
-    <div id="cookiesOkno"></div>
-
-    <!-- Hlavička (načítaná cez JS): -->
-    <header id="header" class="text-center py-3"></header>
-
-    <!-- Začiatok obsahu stránky -->
+    <?php include 'sablony/cookiesOkno.php'; ?>
+    <?php include 'sablony/header.php'; ?>
 
     <!-- Automatický slideshow: -->
     <div class="slideshow">
@@ -65,7 +59,7 @@
           <h2 class="text-center card-title display-md-3">Receptovač</h1>
           <p class="text-center"><i>Stránka so zoznamom receptov pre slovenské jedlá.</i></p>
 
-          <a href="recepty.html" class="btn btn-outline-light"> Zoznam Jedál</a>
+          <a href="recepty.php" class="btn btn-outline-light">Zoznam Jedál</a>
         </div>
       </section>
 
@@ -84,7 +78,7 @@
           <h2 class="text-center card-title display-md-3">Chutné recepty každý deň</h1>
           <p class="text-center"><i>Ako od starej mamy...</i></p>
 
-          <a href="kontakty.html" class="btn btn-outline-light">Povedzte nám Váš recept</a>
+          <a href="kontakt.php" class="btn btn-outline-light">Povedzte nám Váš recept</a>
         </div>
       </section>
 
@@ -269,7 +263,7 @@
               <div class="accordion-body">
                 Ak máte nejaké nápady na recepty, ktoré by ste chceli zverejniť
                 na našej stránke, neváhajte nás kontaktovať prostredníctvom
-                nášho <a href="kontakt.html">kontaktného formulára</a>!
+                nášho <a href="kontakt.php">kontaktného formulára</a>!
               </div>
             </div>
           </div>
@@ -277,11 +271,7 @@
       </div>
     </div>
 
-    <!-- Koniec obsahu stránky -->
-
-    <!-- Footer (načítaný cez JS) -->
-    <footer id="footer" class="text-center py-3"></footer>
-
+    <?php include 'sablony/footer.php'; ?>
     <script src="js/app.js"></script>
   </body>
 </html>

@@ -36,14 +36,8 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- kreatívny bod -->
-    <!-- Cookies okno s pamäťou (localStorage), načítané cez JS: -->
-    <div id="cookiesOkno"></div>
-
-    <!-- Hlavička (načítaná cez JS): -->
-    <header id="header" class="text-center py-3"></header>
-
-    <!-- Začiatok obsahu stránky -->
+    <?php include 'sablony/cookiesOkno.php'; ?>
+    <?php include 'sablony/header.php'; ?>
 
     <div class="container py-4 mt-4">
       <h2 class="my-4 text-center">Zoznam receptov</h2>
@@ -125,9 +119,7 @@
       </div>
     </div>
 
-    <!-- Koniec obsahu stránky -->
-    <footer id="footer" class="text-center py-3"></footer>
-
+    <?php include 'sablony/footer.php'; ?>
     <script src="js/app.js"></script>
   </body>
 </html>
