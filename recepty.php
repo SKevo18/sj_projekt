@@ -1,125 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<?php include 'sablony/head.php'; ?>
 
-    <!-- Meta značky: -->
-    <meta name="author" content="Kevin Svitač" />
-    <meta name="description" content="Zoznam receptov pre slovenské jedlá." />
-    <meta name="keywords" content="receptovač, zoznam, receptov" />
+<body>
+  <?php include 'sablony/cookiesOkno.php'; ?>
+  <?php include 'sablony/header.php'; ?>
 
-    <title>Recepty</title>
+  <div class="container py-4 mt-4">
+    <h2 class="my-4 text-center">Zoznam receptov</h2>
 
-    <!-- Bootstrap: -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Font Awesome: -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <?php include 'sablony/cookiesOkno.php'; ?>
-    <?php include 'sablony/header.php'; ?>
-
-    <div class="container py-4 mt-4">
-      <h2 class="my-4 text-center">Zoznam receptov</h2>
-
-      <div class="row">
-        <div class="col-lg d-flex align-items-stretch">
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-4 d-flex">
-                <img
-                  src="img/galeria/halusky.png"
-                  class="img-fluid rounded-start"
-                  alt="Bryndzové halušky"
-                />
-              </div>
-              <div class="col-8">
-                <article class="card-body">
-                  <h5 class="card-title">
-                    <a href="halusky.html" class="stretched-link"
-                      >Bryndzové halušky</a
-                    >
-                  </h5>
-                  <p class="card-text">
-                    Tradičné slovenské jedlo s ovčím syrom a slaninou.
-                  </p>
-                  <p class="card-text">
-                    <small class="text-body-secondary d-flex flex-column gap-1">
-                      <span
-                        ><b>Pridané:</b>
-                        <time datetime="2023-11-12"
-                          >12. novembra 2023</time
-                        ></span
-                      >
-                      <span><b>Kalórie:</b> 163 kcal</span>
-                    </small>
-                  </p>
-                </article>
-              </div>
+    <div class="row">
+      <div class="col-lg d-flex align-items-stretch">
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-4 d-flex">
+              <img src="assets/img/galeria/halusky.png" class="img-fluid rounded-start" alt="Bryndzové halušky" />
+            </div>
+            <div class="col-8">
+              <article class="card-body">
+                <h5 class="card-title">
+                  <a href="halusky.html" class="stretched-link">Bryndzové halušky</a>
+                </h5>
+                <p class="card-text">
+                  Tradičné slovenské jedlo s ovčím syrom a slaninou.
+                </p>
+                <p class="card-text">
+                  <small class="text-body-secondary d-flex flex-column gap-1">
+                    <span><b>Pridané:</b>
+                      <time datetime="2023-11-12">12. novembra 2023</time></span>
+                    <span><b>Kalórie:</b> 163 kcal</span>
+                  </small>
+                </p>
+              </article>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="col-lg d-flex align-items-stretch">
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-4 d-flex">
-                <img
-                  src="img/galeria/domace_slize.jpg"
-                  class="img-fluid rounded-start"
-                  alt="Domáce slíže"
-                />
-              </div>
-              <div class="col-8">
-                <article class="card-body">
-                  <h5 class="card-title">
-                    <a href="domace_slize.html" class="stretched-link"
-                      >Domáce slíže</a
-                    >
-                  </h5>
-                  <p class="card-text">
-                    Recept na domáce slíže, vhodné ako cestovina do polievok.
-                  </p>
-                  <p class="card-text">
-                    <small class="text-body-secondary d-flex flex-column gap-1">
-                      <span
-                        ><b>Pridané:</b>
-                        <time datetime="2023-12-04"
-                          >4. decembra 2023</time
-                        ></span
-                      >
-                      <span><b>Kalórie (na 100 g):</b> 340 kcal</span>
-                    </small>
-                  </p>
-                </article>
-              </div>
+      <div class="col-lg d-flex align-items-stretch">
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-4 d-flex">
+              <img src="assets/img/galeria/domace_slize.jpg" class="img-fluid rounded-start" alt="Domáce slíže" />
+            </div>
+            <div class="col-8">
+              <article class="card-body">
+                <h5 class="card-title">
+                  <a href="domace_slize.html" class="stretched-link">Domáce slíže</a>
+                </h5>
+                <p class="card-text">
+                  Recept na domáce slíže, vhodné ako cestovina do polievok.
+                </p>
+                <p class="card-text">
+                  <small class="text-body-secondary d-flex flex-column gap-1">
+                    <span><b>Pridané:</b>
+                      <time datetime="2023-12-04">4. decembra 2023</time></span>
+                    <span><b>Kalórie (na 100 g):</b> 340 kcal</span>
+                  </small>
+                </p>
+              </article>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <?php include 'sablony/footer.php'; ?>
-    <script src="js/app.js"></script>
-  </body>
+  <?php include 'sablony/footer.php'; ?>
+</body>
+
 </html>
