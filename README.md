@@ -125,11 +125,11 @@ A predpokladajme, že máme nasledujúci súbor `footer.php`:
 Máme taktiež k dispozícii `index.php`:
 
 ```php
-<?php include 'header.php'; ?>
+<?php include_once 'header.php'; ?>
     <main>
         <p>Vitajte na mojej stránke!</p>
     </main>
-<?php include 'footer.php'; ?>
+<?php include_once 'footer.php'; ?>
 ```
 
 Ak si otvoríme `index.php` v prehliadači, uvidíme nasledujúci výstup:
