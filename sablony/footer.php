@@ -4,7 +4,9 @@
   >
     <div class="d-flex flex-column">
       <h2 class="fs-6 fw-bold">Zoznam stránok:</h2>
-      <ul id="odkazyFooter" class="list-unstyled"></ul>
+      <ul class="list-unstyled">
+        <?php echo(html_nav($GLOBALS["ODKAZY"])); ?>
+      </ul>
     </div>
     <div class="d-flex flex-column">
       <h2 class="fs-6 fw-bold">Zdroje obrázkov:</h2>
@@ -26,7 +28,7 @@
       <br/>
 
       <!-- kreatívny bod -->
-      <i class="text-center">&copy; <b>Kevin Svitač</b> <span id="aktualnyRok"></span>. Všetky práva vyhradené.</i>
+      <i class="text-center">&copy; <b>Kevin Svitač</b> <?php echo date('Y'); ?>. Všetky práva vyhradené.</i>
     </p>
   </div>
 </footer>

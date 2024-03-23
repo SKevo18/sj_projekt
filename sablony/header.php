@@ -11,7 +11,9 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navigacia">
-        <ul id="odkazyHeader" class="navbar-nav nav-underline me-auto"></ul>
+        <ul class="navbar-nav nav-underline me-auto">
+          <?php echo(html_nav($GLOBALS["ODKAZY"])) ?>
+        </ul>
       </div>
     </div>
   </nav>

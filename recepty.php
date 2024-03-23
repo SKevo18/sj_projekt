@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'sablony/head.php'; ?>
+<?php
+  require_once "_inc/config.php";
+  require_once "_inc/components.php";
+  include_once 'sablony/head.php';
+?>
 
 <body>
-  <?php include 'sablony/cookiesOkno.php'; ?>
-  <?php include 'sablony/header.php'; ?>
+  <?php include_once 'sablony/cookiesOkno.php'; ?>
+  <?php include_once 'sablony/header.php'; ?>
 
   <div class="container py-4 mt-4">
     <h2 class="my-4 text-center">Zoznam receptov</h2>
@@ -66,7 +70,7 @@
     </div>
   </div>
 
-  <?php include 'sablony/footer.php'; ?>
+  <?php include_once 'sablony/footer.php'; ?>
 </body>
 
 </html>

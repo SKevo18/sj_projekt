@@ -31,7 +31,7 @@ sequenceDiagram
 
 Ale predtým, než budeme môcť vytvárať akúkoľvek zmysluplnú stránku s logickými vlastnosťami a prvkami dynamickosti, musíme najskôr pripraviť naše šablóny.
 
-### 2. Úprava šablóny
+## 2. Úprava šablóny
 
 Všetok dynamický kód sa dá previesť na PHP kód. Ale nie vždy je to možné aj naopak (z dynamického obsahu nevieme jednoznačne určiť konkrétny statický obsah, pretože máme veľa možností ako by statický obsah mohol vyzerať).
 
@@ -173,3 +173,78 @@ Názov `index` je všeobecná konvencia ktorá sa používa pre webové servery.
 ### Commit pre úpravu šablón
 
 Nasledujúci commit obsahuje zmeny ktoré som vykonal pre úpravu šablóny: [bb1055fb425ecd32e2d0c704a0b0481a8cdb5975](https://github.com/SKevo18/sj_projekt/commit/bb1055fb425ecd32e2d0c704a0b0481a8cdb5975)
+
+Následne som ešte vykonal rôzne kozmetické úpravy pre vylepšenú organizáciu kódu (napríklad presun všetkých štýlov, skriptov a médii do samostatného súboru `assets`, vytvorenie `_inc` súboru, formátovanie kódu) - commit [918c22f40a2b65a916c73565ed7c0f0ae89239c7](https://github.com/SKevo18/sj_projekt/commit/918c22f40a2b65a916c73565ed7c0f0ae89239c7).
+
+#### Poznámka: čo je súbor `.gitignore`?
+
+Súbor `.gitignore` je súbor, ktorý obsahuje zoznam súborov a adresárov, ktoré chceme ignorovať pri verzionovaní pomocou Gitu. Tento súbor je veľmi užitočný, pretože nám umožňuje vynechať súbory, ktoré by sme nemali zdielať verejne (napríklad súbory s citlivými údajmi, súbory s dočasnými dátami, súbory s logmi, atď.).
+
+Neskôr vysvetlím použitie `config.php` v súvislosti s konfiguračným súborom pre pripojenie k databáze (respektíve: v produkcii by sme asi nechceli verejne zdielať naše citlivé údaje pre vytvorenie pripojenia k databáze).
+
+## 3. Syntax PHP
+
+Medzičasom by sme mohli vykonať ešte rôzne iné kozmetické úpravy - napríklad vytvorenie asociatívneho poľa pre uchovanie odkazov na rôzne stránky. Následne vytvoríme funkciu ktorá akceptuje toto poľe ako argument a vykreslí pre nás navigačnú lištu so všetkými odkazmi. Týmto spôsobom môžeme jednoducho pridávať alebo odoberať odkazy z navigačnej lišty bez toho, aby sme museli upravovať kód v každom súbore zvlášť, alebo písať zdlĺhavý HTML kód.
+
+### Čo je asociatívne pole?
+
+Asociatívne pole je špeciálny typ poľa, ktoré obsahuje kľúče a hodnoty. Kľúče môžu byť ľubovoľné reťazce alebo čísla, zatiaľ čo hodnoty môžu byť ľubovoľné dátové typy (napríklad reťazce, čísla, boolean hodnoty, alebo dokonca iné poľia). Je to štruktúra, ktorá je veľmi podobná objektu v iných programovacích jazykoch (napr.: `dict` v Pythone, `Map` v Jave, `Object` v JavaScripte, atď...).
+
+Príklad asociatívneho poľa pre uchovanie odkazov na rôzne stránky:
+
+```php
+$pages = [
+    'Domov' => 'index.php',
+    'O nás' => 'about.php',
+    'Kontakt' => 'contact.php',
+    'Blog' => 'blog.php',
+    'Galeria' => 'gallery.php'
+];
+```
+
+Príklad funkcie `render_navbar`, ktorá akceptuje toto pole ako argument a vykreslí pre nás navigačnú lištu, by mohol vyzerať nasledovne:
+
+```php
+function render_navbar(array $pages) {
+    echo '<nav>';
+    echo '<ul>';
+    foreach ($pages as $title => $url) {
+        echo '<li><a href="' . $url . '">' . $title . '</a></li>';
+    }
+    echo '</ul>';
+    echo '</nav>';
+}
+```
+
+Ak teraz zavoláme túto funkciu s naším asociatívnym poľom `$pages` ako argument, vykreslí sa nám navigačná lišta so všetkými odkazmi:
+
+```php
+render_navbar($pages);
+// Výstup:
+// <nav>
+//     <ul>
+//         <li><a href="index.php">Domov</a></li>
+//         <li><a href="about.php">O nás</a></li>
+//         <li><a href="contact.php">Kontakt</a></li>
+//         <li><a href="blog.php">Blog</a></li>
+//         <li><a href="gallery.php">Galeria</a></li>
+//     </ul>
+// </nav>
+// poznámka: výstup je odsadený pre lepšiu čitateľnosť, ale v skutočnosti sa všetky elementy vypíšu
+// v jednom riadku bez tabulátorov (odsadenia) - pre webový prehliadač to nie je dôležité, pretože
+// to pokladá za správny HTML kód
+```
+
+Syntax PHP obsahuje základné koncepty, ktoré nájdeme v iných programovacích jazykoch. Nasledujúce odkazy sú užitočné pre začiatočníkov, ktorí sa chcú naučiť základy PHP:
+
+- Priscilla (`Dashboard` > `Course list` > `Jazyky webu` > `PHP` > `PHP - základy jazyka`)
+- [W3Schools PHP Tutorial](https://www.w3schools.com/php/)
+- [PHP.net Dokumentácia](https://www.php.net/manual/en/index.php)
+
+### Commit pre využitie syntaxe PHP
+
+[xxx]
+
+## 4. Databáza
+
+...
