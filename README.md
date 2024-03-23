@@ -172,4 +172,4 @@ Názov `index` je všeobecná konvencia ktorá sa používa pre webové servery.
 
 ### Commit pre úpravu šablón
 
-Nasledujúci commit obsahuje zmeny ktoré som vykonal pre úpravu šablóny: bb1055fb425ecd32e2d0c704a0b0481a8cdb5975
+Nasledujúci commit obsahuje zmeny ktoré som vykonal pre úpravu šablóny: [bb1055fb425ecd32e2d0c704a0b0481a8cdb5975](https://github.com/SKevo18/sj_projekt/commit/bb1055fb425ecd32e2d0c704a0b0481a8cdb5975)
