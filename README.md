@@ -243,7 +243,7 @@ Syntax PHP obsahuje základné koncepty, ktoré nájdeme v iných programovacíc
 
 ### Commit pre využitie syntaxe PHP
 
-[xxx]
+[115145c8a93652b6d1ca7aa1c7f941ef91745216](https://github.com/SKevo18/sj_projekt/commit/115145c8a93652b6d1ca7aa1c7f941ef91745216)
 
 ## 4. Databáza
 
