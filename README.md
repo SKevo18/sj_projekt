@@ -33,7 +33,7 @@ Ale predtým, než budeme môcť vytvárať akúkoľvek zmysluplnú stránku s l
 
 ## 2. Úprava šablóny
 
-Všetok dynamický kód sa dá previesť na PHP kód. Ale nie vždy je to možné aj naopak (z dynamického obsahu nevieme jednoznačne určiť konkrétny statický obsah, pretože máme veľa možností ako by statický obsah mohol vyzerať).
+Všetok statický kód sa dá previesť na PHP kód. Ale nie vždy je to možné aj naopak (z dynamického obsahu nevieme jednoznačne určiť konkrétny statický obsah, pretože máme veľa možností ako by statický obsah mohol vyzerať).
 
 V našom prípade sa jedná o konverziu statického kódu na dynamický. Zoberme si nasledujúci príklad jednoduchého HTML kódu:
 
