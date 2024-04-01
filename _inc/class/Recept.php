@@ -21,7 +21,7 @@ class Recept extends Databaza
             "id" => $id
         ));
 
-        $recept["ingrediencie"] = $this->fetchAll("
+        $recept["suroviny"] = $this->fetchAll("
             SELECT
                 `s`.`nazov`,
                 (`s`.`kcal` * `sr`.`mnozstvo`) as `kcal`,

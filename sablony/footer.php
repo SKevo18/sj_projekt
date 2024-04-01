@@ -1,5 +1,5 @@
-<footer id="footer" class="container-fluid pt-4 pb-2">
-  <div class="container d-flex justify-content-evenly my-4">
+<footer id="footer" class="container pt-4 pb-2">
+  <div class="d-flex justify-content-between my-4">
     <div class="d-flex flex-column">
       <h2 class="fs-6 fw-bold">Zoznam stránok:</h2>
       <ul class="list-unstyled">
