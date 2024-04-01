@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 require_once "_inc/config.php";
-require_once "_inc/components.php";
 include_once 'sablony/head.php';
 ?>
 
@@ -16,7 +13,7 @@ include_once 'sablony/head.php';
       Kontaktujte nás, a možno sa Váš recept stane súčasťou našej stránky!
     </p>
 
-    <form action="kontakt_podakovanie.html" method="GET">
+    <form action="kontakt_podakovanie.php" method="POST">
       <div class="mb-3">
         <label for="meno" class="form-label">Meno</label>
         <input required type="text" name="meno" class="form-control" id="meno" placeholder="Jožko Mrkvička" />
@@ -32,13 +29,10 @@ include_once 'sablony/head.php';
 
       <div class="mb-3">
         <input required id="suhlas" name="suhlas" type="checkbox" />
-        <label for="suhlas" class="form-label">Súhlasím s podmienkami Spracovania osobných údajov</label>
+        <label for="suhlas" class="form-label">Súhlasím s Podmienkami spracovania osobných údajov.</label>
       </div>
       <button type="submit" class="btn btn-primary">Odoslať</button>
     </form>
   </div>
 
   <?php include_once 'sablony/footer.php'; ?>
-</body>
-
-</html>

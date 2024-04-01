@@ -1,3 +1,5 @@
+<?php include_once 'cookiesOkno.php'; ?>
+
 <header id="header">
   <nav class="navbar navbar-expand-sm fixed-top bg-body-tertiary">
     <div class="container">
@@ -12,7 +14,7 @@
 
       <div class="collapse navbar-collapse" id="navigacia">
         <ul class="navbar-nav nav-underline me-auto">
-          <?php echo(html_nav($GLOBALS["ODKAZY"])) ?>
+          <?php echo html_nav($GLOBALS["ODKAZY"]) ?>
         </ul>
       </div>
     </div>

@@ -1,0 +1,5 @@
+INSERT INTO `recept`
+    (`id`, `nazov`, `pridany`, `postup`, `popis`)
+VALUES
+    ('Domáce slíže', CURRENT_TIMESTAMP(), 'Všetky ingrediencie zmiešame a vypracujeme tuhé cesto. Cesto necháme odpočinúť 30 minút.\r\n\r\nCesto rozvaľkáme na hrúbku 2 mm a nakrájame na prúžky 1 cm široké.\r\n\r\nPrúžky cesta zrolujeme a nakrájame na 1 cm dlhé kúsky. Kúsky rozvaľkáme na hrúbku 1 mm.\r\n\r\nSlíže uvaríme vo vriacej osolenej vode. Keď vyplávajú na povrch, vyberieme ich.', 'Domáce slíže, vhodné aj do polievky.'),
+    ('Bryndzové halušky', CURRENT_TIMESTAMP(), 'Múku preosejeme do misky, pridáme soľ a vodu. Vypracujeme hladké cesto, ktoré necháme odpočinúť 30 minút.\r\n\r\nCesto si rozdelíme na 4 časti, z každej vyvaľkáme valček, ktorý nakrájame na 1 cm dlhé kúsky. Kúsky cesta vytvarujeme do tvaru halušiek.\r\n\r\nV hrnci si pripravíme osolenú vodu, do ktorej vložíme halušky. Keď vyplávajú na povrch, necháme ich variť ešte 5 minút. Uvarené halušky scedíme a prelejeme studenou vodou.\r\n\r\nNa panvici si opražíme slaninku, ktorú pridáme k haluškám. Halušky podávame s bryndzou.', 'Tradičné slovenské jedlo.');
