@@ -36,7 +36,7 @@ class Databaza
     }
 
     /**
-     * Vráti jeden riadok z databázy.
+     * Vráti prvý výsledok.
      */
     public function fetch(string $sql, array $parametre = []): array
     {
@@ -44,7 +44,7 @@ class Databaza
     }
 
     /**
-     * Vráti všetky riadky z databázy.
+     * Vráti všetky výsledky.
      */
     public function fetchAll(string $sql, array $parametre = []): array
     {
