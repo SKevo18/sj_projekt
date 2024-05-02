@@ -25,12 +25,23 @@ class Databaza
     }
 
     /**
-     * Vykoná dotaz v databáze.
+     * Pripravý a vykoná SQL dotaz v databáze.
+     * 
+     * Vráti objekt dotazu (výsledky).
      */
     private function query(string $sql, array $parametre = []): PDOStatement
     {
         $dotaz = $this->pripojenie->prepare($sql);
-        $dotaz->execute($parametre);
+        $ok = $dotaz->execute($parametre);
+
+        if (!$ok) {
+            $sprava = "Nepodarilo sa vykonať dotaz: $sql";
+            if (CONFIG["DEBUG"]) {
+                $sprava .= "\nChyba: " . $dotaz->errorInfo();
+            }
+
+            die($sprava);
+        }
 
         return $dotaz;
     }
@@ -59,24 +70,24 @@ class Databaza
     public function insert(string $tabulka, array $data): void
     {
         $stlpce = implode(", ", array_keys($data));
-        $hodnoty = implode(", ", array_fill(0, count($data), "?"));
+        $hodnoty = implode(", ", array_fill(0, count($data), "?")); // od indexu 0
 
         $sql = "INSERT INTO `$tabulka` ($stlpce) VALUES ($hodnoty)";
         $this->query($sql, array_values($data));
     }
 
     /**
-     * Aktualizuje dáta v databáze.
+     * Updatne dáta v databáze.
      * 
      * Kľúče reprezentujú stĺpce, hodnoty reprezentujú konkrétne dáta pre stĺpec.
      */
-    public function update(string $table, array $data, string $podmienkaWhere, array $parametre = []): void
+    public function update(string $table, array $data, string $podmienkaWhere): void
     {
         // medzi klucmi bude `= ?`, na konci musime doplnit chybajuce `= ?`
         $set = implode(" = ?, ", array_keys($data)) . " = ?";
         $sql = "UPDATE `$table` SET $set WHERE $podmienkaWhere";
 
-        $this->query($sql, array_merge(array_values($data), $parametre));
+        $this->query($sql, array_values($data));
     }
 
     /**

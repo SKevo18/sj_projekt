@@ -3,7 +3,7 @@
     <div class="d-flex flex-column">
       <h2 class="fs-6 fw-bold">Zoznam stránok:</h2>
       <ul class="list-unstyled">
-        <?php echo html_nav($GLOBALS["ODKAZY"]); ?>
+        <?= vykreslitOdkazy($GLOBALS["ODKAZY"]); ?>
       </ul>
     </div>
     <div class="d-flex flex-column">
@@ -13,12 +13,12 @@
     </div>
 
     <div class="align-self-center text-center">
-      <p>&copy; Kevin Svitač <?php echo date('Y'); ?>. Všetky práva vyhradené.</p>
+      <p>&copy; Kevin Svitač <?= date('Y'); ?>. Všetky práva vyhradené.</p>
       <p><i>Táto stránka je súčasťou projektu pre predmet "Skriptovacie jazyky" na UKF.</i></p>
     </div>
   </div>
 </footer>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/<?= basename($_SERVER['SCRIPT_FILENAME'], ".php") ?>.js"></script>
 </body>
 
 </html>

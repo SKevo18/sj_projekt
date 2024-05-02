@@ -1,10 +1,10 @@
 <?php
 require_once '_inc/config.php';
-include_once 'sablony/head.php';
+include_once '_inc/sablony/head.php';
 ?>
 
 <body>
-  <?php include_once 'sablony/header.php'; ?>
+  <?php include_once '_inc/sablony/header.php'; ?>
 
   <!-- Automatický slideshow: -->
   <div class="slideshow">
@@ -114,4 +114,4 @@ include_once 'sablony/head.php';
     </div>
   </div>
 
-  <?php include_once 'sablony/footer.php'; ?>
+  <?php include_once '_inc/sablony/footer.php'; ?>

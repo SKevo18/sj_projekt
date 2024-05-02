@@ -14,7 +14,7 @@
 
       <div class="collapse navbar-collapse" id="navigacia">
         <ul class="navbar-nav nav-underline me-auto">
-          <?php echo html_nav($GLOBALS["ODKAZY"]) ?>
+          <?= vykreslitOdkazy($GLOBALS["ODKAZY"]) ?>
         </ul>
       </div>
     </div>

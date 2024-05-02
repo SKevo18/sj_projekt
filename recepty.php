@@ -1,11 +1,11 @@
 <?php
 require_once "_inc/config.php";
-include_once 'sablony/head.php';
+include_once '_inc/sablony/head.php';
 ?>
 
 <body>
-  <?php include_once 'sablony/cookiesOkno.php'; ?>
-  <?php include_once 'sablony/header.php'; ?>
+  <?php include_once '_inc/sablony/cookiesOkno.php'; ?>
+  <?php include_once '_inc/sablony/header.php'; ?>
 
   <div class="container py-4 mt-4">
     <h2 class="my-4 text-center">Zoznam receptov</h2>
@@ -18,4 +18,4 @@ include_once 'sablony/head.php';
     ?>
   </div>
 
-  <?php include_once 'sablony/footer.php'; ?>
+  <?php include_once '_inc/sablony/footer.php'; ?>

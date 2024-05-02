@@ -5,7 +5,7 @@ class Kontakt extends Databaza
     /**
      * Vloží kontakt do databázy.
      */
-    public function vlozKontakt(string $meno, string $email, string $sprava, bool $suhlas): void
+    public function vytvorKontakt(string $meno, string $email, string $sprava, bool $suhlas): void
     {
         $this->insert("kontakt", array(
             "meno" => $meno,

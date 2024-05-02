@@ -1,33 +1,3 @@
-// COOKIES OKNO:
-const COOKIES_OKNO_ID = "cookiesOkno";
-const COOKIES_LS_PREMENNA = "cookiesPotvrdene";
-
-function zobrazitCookiesListu(cookies_okno) {
-  let potvrdenie = localStorage.getItem(COOKIES_LS_PREMENNA);
-
-  if (potvrdenie == null) {
-    cookies_okno.show();
-  } else if (potvrdenie != "ano") {
-    alert("Cookies musia byť potvrdené!");
-    cookies_okno.show();
-  }
-}
-
-function potvrditCookies(potvrdenie) {
-  localStorage.setItem(COOKIES_LS_PREMENNA, potvrdenie ? "ano" : "nie");
-  location.reload();
-}
-
-// PO NAČÍTANÍ HTML:
-document.addEventListener("DOMContentLoaded", () => {
-  const cookies_okno = new bootstrap.Modal(`#${COOKIES_OKNO_ID}`, {
-    keyboard: false,
-  });
-
-  zobrazitCookiesListu(cookies_okno);
-});
-
-// SLIDESHOW
 const SLIDESHOW_ELEMENTY = document.querySelectorAll(".slideshow");
 
 function zmenitSnimku(slideshow_element, index) {

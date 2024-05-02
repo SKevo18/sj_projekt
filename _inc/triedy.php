@@ -1,10 +1,14 @@
 <?php
-require_once "class/Databaza.php";
+require_once "triedy/Databaza.php";
 
-require_once "class/Kontakt.php";
-require_once "class/Recept.php";
+require_once "triedy/Kontakt.php";
+require_once "triedy/Recept.php";
+require_once "triedy/Pouzivatel.php";
 
-function html_nav(array $odkazy): string
+/**
+ * Vykreslí odkazy v navigácii.
+ */
+function vykreslitOdkazy(array $odkazy): string
 {
     $aktualnaStranka = basename($_SERVER['SCRIPT_NAME']);
     $html = '';

@@ -2,6 +2,9 @@
 
 class Recept extends Databaza
 {
+    /**
+     * Vráti všetky recepty.
+     */
     public function vsetkyRecepty(int $limit = null): array
     {
         return $this->fetchAll(
@@ -12,17 +15,19 @@ class Recept extends Databaza
         );
     }
 
+    /**
+     * Vráti konkrétny recept podľa ID.
+     */
     public function recept(int $id): array
     {
-        $recept = $this->fetch("
-            SELECT * FROM `recept`
+        $recept = $this->fetch("SELECT *
+            FROM `recept`
             WHERE `id` = :id
         ", array(
             "id" => $id
         ));
 
-        $recept["suroviny"] = $this->fetchAll("
-            SELECT
+        $recept["suroviny"] = $this->fetchAll("SELECT
                 `s`.`nazov`,
                 (`s`.`kcal` * `sr`.`mnozstvo`) as `kcal`,
                 CONCAT(`sr`.`mnozstvo`, ' ', `s`.`jednotka`) as `mnozstvo`,
@@ -38,7 +43,53 @@ class Recept extends Databaza
         return $recept;
     }
 
+    /**
+     * Vytvorí nový recept.
+     * 
+     * `{ nazov, popis, postup }`
+     */
+    public function vytvorRecept(array $data): void
+    {
+        $this->insert("recept", array(
+            "nazov" => $data["nazov"],
+            "popis" => $data["popis"],
+            "postup" => $data["postup"]
+        ));
+    }
 
+    /**
+     * Vytvorí surovinu.
+     * 
+     * `{ nazov, kcal, jednotka, cena }`
+     */
+    public function vytvorSurovinu(array $surovina): void
+    {
+        $this->insert("surovina", array(
+            "nazov" => $surovina["nazov"],
+            "kcal" => $surovina["kcal"],
+            "jednotka" => $surovina["jednotka"],
+            "cena" => $surovina["cena"]
+        ));
+    }
+
+    /**
+     * Pridá surovinu k receptu.
+     * 
+     * `{ id, mnozstvo }`
+     */
+    public function pridajSurovinu(int $idRecept, array $surovina): void
+    {
+        $this->insert("surovina_recept", array(
+            "id_recept" => $idRecept,
+            "id_surovina" => $surovina["id"],
+            "mnozstvo" => $surovina["mnozstvo"]
+        ));
+    }
+
+
+    /**
+     * Vykreslí zoznam receptov ako HTML.
+     */
     public function vykresliZoznam(array $recepty): string
     {
         $html = '<div class="row g-4">';
@@ -59,8 +110,8 @@ class Recept extends Databaza
                         <p class="card-text">' . ($recept["popis"] ?? "Žiadny popis.") . '</p>
                         <p class="card-text">
                             <small class="text-body-secondary">
-                                <b>Pridané:</b>
-                                <time datetime="' . $recept["pridany"] . '">' . date("d. m. Y", strtotime($recept['pridany'])) . '</time>
+                                <b>Pridaný:</b>
+                                <time datetime="' . $recept["pridany"] . '">' .  $recept['pridany'] . '</time>
                             </small>
                         </p>
                     </article>

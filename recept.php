@@ -1,11 +1,11 @@
 <?php
 require_once "_inc/config.php";
-include_once 'sablony/head.php';
+include_once '_inc/sablony/head.php';
 ?>
 
 <body>
-  <?php include_once 'sablony/cookiesOkno.php'; ?>
-  <?php include_once 'sablony/header.php'; ?>
+  <?php include_once '_inc/sablony/cookiesOkno.php'; ?>
+  <?php include_once '_inc/sablony/header.php'; ?>
 
   <?php
   if ($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -15,11 +15,11 @@ include_once 'sablony/head.php';
     if ($recept) {
   ?>
       <div class="container py-4 mt-4">
-        <h2 class="my-4 text-center"><?php echo $recept["nazov"]; ?></h2>
+        <h2 class="my-4 text-center"><?= $recept["nazov"]; ?></h2>
 
         <div class="row">
           <div class="col-lg-5">
-            <img src="assets/img/recepty/<?php echo $recept["id"]; ?>.png" class="img-fluid rounded-start" alt="<?php echo $recept["nazov"]; ?>" />
+            <img src="assets/img/recepty/<?= $recept["id"]; ?>.png" class="img-fluid rounded-start" alt="<?= $recept["nazov"]; ?>" />
           </div>
 
           <div class="col-lg-6">
@@ -53,7 +53,7 @@ include_once 'sablony/head.php';
 
         <div class="mt-4">
           <h3>Postup:</h3>
-          <p><?php echo str_replace("\n", "<br>", $recept["postup"]); ?></p>
+          <p><?= str_replace("\n", "<br>", $recept["postup"]); ?></p>
         </div>
       </div>
     <?php
@@ -67,4 +67,4 @@ include_once 'sablony/head.php';
   }
   ?>
 
-  <?php include_once 'sablony/footer.php'; ?>
+  <?php include_once '_inc/sablony/footer.php'; ?>

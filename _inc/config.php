@@ -1,4 +1,5 @@
 <?php
+
 const CONFIG = [
     "DB" => [
         "HOST" => "localhost",
@@ -19,4 +20,8 @@ $GLOBALS["ODKAZY"] = [
     array('href' => 'kontakt.php', 'text' => 'Kontakt', 'ikona' => 'fa-envelope')
 ];
 
-require_once "classes.php";
+require_once "triedy.php";
+
+if (isset($_SESSION["opravnenia"]) && ($_SESSION["opravnenia"] >= Pouzivatel::ADMIN)) {
+    $GLOBALS["ODKAZY"][] = array('href' => 'admin.php', 'text' => 'Admin', 'ikona' => 'fa-user-cog');
+}
