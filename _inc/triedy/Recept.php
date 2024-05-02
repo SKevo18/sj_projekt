@@ -58,36 +58,6 @@ class Recept extends Databaza
     }
 
     /**
-     * Vytvorí surovinu.
-     * 
-     * `{ nazov, kcal, jednotka, cena }`
-     */
-    public function vytvorSurovinu(array $surovina): void
-    {
-        $this->insert("surovina", array(
-            "nazov" => $surovina["nazov"],
-            "kcal" => $surovina["kcal"],
-            "jednotka" => $surovina["jednotka"],
-            "cena" => $surovina["cena"]
-        ));
-    }
-
-    /**
-     * Pridá surovinu k receptu.
-     * 
-     * `{ id, mnozstvo }`
-     */
-    public function pridajSurovinu(int $idRecept, array $surovina): void
-    {
-        $this->insert("surovina_recept", array(
-            "id_recept" => $idRecept,
-            "id_surovina" => $surovina["id"],
-            "mnozstvo" => $surovina["mnozstvo"]
-        ));
-    }
-
-
-    /**
      * Vykreslí zoznam receptov ako HTML.
      */
     public function vykresliZoznam(array $recepty): string

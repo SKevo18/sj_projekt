@@ -17,7 +17,7 @@ include_once '_inc/sablony/head.php';
         Kontaktujte nás, a možno sa Váš recept stane súčasťou našej stránky!
       </p>
 
-      <form action="kontakt_podakovanie.php" method="POST">
+      <form method="POST">
         <div class="mb-3">
           <label for="meno" class="form-label">Meno</label>
           <input required type="text" name="meno" class="form-control" id="meno" placeholder="Jožko Mrkvička" />

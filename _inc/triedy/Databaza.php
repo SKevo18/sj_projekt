@@ -25,6 +25,21 @@ class Databaza
     }
 
     /**
+     * Vypíše chybu z dotazu a ukončí skript.
+     */
+    private function chyba(PDOStatement $dotaz): void
+    {
+        $sprava = "Nastala chyba v datbáze. Prosím, skúste to znova neskôr.";
+        $detaily = $dotaz->errorInfo()[2];
+
+        if (CONFIG["DEBUG"] && $detaily) {
+            $sprava .= "\nDetaily chyby: " . $detaily;
+        }
+
+        die($sprava);
+    }
+
+    /**
      * Pripravý a vykoná SQL dotaz v databáze.
      * 
      * Vráti objekt dotazu (výsledky).
@@ -35,12 +50,7 @@ class Databaza
         $ok = $dotaz->execute($parametre);
 
         if (!$ok) {
-            $sprava = "Nepodarilo sa vykonať dotaz: $sql";
-            if (CONFIG["DEBUG"]) {
-                $sprava .= "\nChyba: " . $dotaz->errorInfo();
-            }
-
-            die($sprava);
+            $this->chyba($dotaz);
         }
 
         return $dotaz;
@@ -51,7 +61,8 @@ class Databaza
      */
     public function fetch(string $sql, array $parametre = []): array
     {
-        return $this->query($sql, $parametre)->fetch();
+        $dotaz = $this->query($sql, $parametre);
+        return $dotaz->fetch();
     }
 
     /**
@@ -85,7 +96,7 @@ class Databaza
     {
         // medzi klucmi bude `= ?`, na konci musime doplnit chybajuce `= ?`
         $set = implode(" = ?, ", array_keys($data)) . " = ?";
-        $sql = "UPDATE `$table` SET $set WHERE $podmienkaWhere";
+        $sql = "UPDATE `$table` SET $set WHERE $podmienkaWhere"; // FIXME: podmienkaWhere SQL injection?
 
         $this->query($sql, array_values($data));
     }

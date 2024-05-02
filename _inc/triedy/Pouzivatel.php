@@ -17,16 +17,21 @@ class Pouzivatel extends Databaza
     }
 
     /**
-     * Vráti konkrétneho používateľa podľa ID.
+     * Skontroluje prihlasovacie údaje a vráti používateľa, inak `null`.
      */
-    public function pouzivatel(int $id): array
+    public function prihlasit(string $pouzivatelske_meno, string $heslo): ?array
     {
-        return $this->fetch("SELECT *
-            FROM `pouzivatel`
-            WHERE `id` = :id
-        ", array(
-            "id" => $id
-        ));
+        $pouzivatel = $this->fetch(
+            "SELECT * FROM `pouzivatel`
+            WHERE `pouzivatelske_meno` = :pouzivatelske_meno",
+            array("pouzivatelske_meno" => $pouzivatelske_meno)
+        );
+
+        if ($pouzivatel && password_verify($heslo, $pouzivatel["heslo"])) {
+            return $pouzivatel;
+        }
+
+        return null;
     }
 
     /**

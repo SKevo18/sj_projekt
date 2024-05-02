@@ -12,7 +12,7 @@ if (!isset($_COOKIE["cookies"]) || $_COOKIE["cookies"] !== "ano") {
           Táto stránka používa pre svoje správne fungovanie <b>súbory cookies</b>.
         </div>
         <div class="modal-footer">
-          <form action="" method="POST">
+          <form method="POST">
             <button type="submit" name="cookies" value="ano" class="btn btn-primary">
               Súhlasím
             </button>

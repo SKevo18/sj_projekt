@@ -1,6 +1,8 @@
 <?php
 require_once '_inc/config.php';
 include_once '_inc/sablony/head.php';
+
+session_start();
 ?>
 
 <body>
@@ -14,15 +16,15 @@ include_once '_inc/sablony/head.php';
     ?>
 
     <div class="col-8 mx-auto mt-5 pt-4">
-        <h1>Administrácia</h1>
+        <h1>Admin rozhranie</h1>
+        <p>
+            Vitajte, <b><?= $_SESSION["pouzivatelske_meno"]; ?></b>!
+        </p>
 
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <h2>Recepty</h2>
-                <a href="recepty.php" class="btn btn-primary">Zoznam receptov</a>
-                <a href="recepty_pridanie.php" class="btn btn-primary">Pridať recept</a>
-            </div>
-        </div>
+        <?php
+        include_once '_inc/sablony/admin/suroviny.php';
+        ?>
+    </div>
 
     <?php include_once '_inc/sablony/footer.php'; ?>
 </body>
