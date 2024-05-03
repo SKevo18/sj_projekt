@@ -39,13 +39,34 @@ class Pouzivatel extends Databaza
      * 
      * `{ pouzivatelske_meno, email, heslo, opravnenia }`
      */
-    public function vytvorit(array $data): void
+    public function vytvorPouzivatela(array $data): void
     {
         $this->insert("pouzivatel", array(
             "pouzivatelske_meno" => $data["pouzivatelske_meno"],
-            "email" => $data["email"],
             "heslo" => password_hash($data["heslo"], PASSWORD_BCRYPT),
             "opravnenia" => $data["opravnenia"]
         ));
+    }
+
+    /**
+     * Upraví používateľa.
+     * 
+     * `{ pouzivatelske_meno, email, heslo, opravnenia }`
+     */
+    public function upravPouzivatela(int $id, array $data): void
+    {
+        $this->update("pouzivatel", array(
+            "pouzivatelske_meno" => $data["pouzivatelske_meno"],
+            "heslo" => password_hash($data["heslo"], PASSWORD_BCRYPT),
+            "opravnenia" => $data["opravnenia"]
+        ), "`id` = $id");
+    }
+
+    /**
+     * Zmaže používateľa.
+     */
+    public function zmazPouzivatela(int $id): void
+    {
+        $this->delete("pouzivatel", "`id` = $id");
     }
 }

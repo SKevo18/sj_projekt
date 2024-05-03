@@ -23,6 +23,7 @@ session_start();
 
         <?php
         include_once '_inc/sablony/admin/suroviny.php';
+        include_once '_inc/sablony/admin/pouzivatelia.php';
         ?>
     </div>
 
