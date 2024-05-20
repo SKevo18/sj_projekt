@@ -3,7 +3,7 @@
     <div class="d-flex flex-column">
       <h2 class="fs-6 fw-bold">Zoznam stránok:</h2>
       <ul class="list-unstyled">
-        <?= vykreslitOdkazy($GLOBALS["ODKAZY"]); ?>
+        <?= Odkaz::vykreslit($GLOBALS["ODKAZY"]); ?>
       </ul>
     </div>
     <div class="d-flex flex-column">

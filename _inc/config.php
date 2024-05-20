@@ -10,9 +10,11 @@ const CONFIG = [
     "DEBUG" => true
 ];
 
-ini_set('display_errors', CONFIG["DEBUG"]);
-ini_set('display_startup_errors', CONFIG["DEBUG"]);
-error_reporting(E_ALL);
+if (CONFIG["DEBUG"]) {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
 
 $GLOBALS["ODKAZY"] = [
     array('href' => 'index.php', 'text' => 'Domov', 'ikona' => 'fa-home'),
@@ -22,6 +24,14 @@ $GLOBALS["ODKAZY"] = [
 
 require_once "triedy.php";
 
+session_start();
+
 if (isset($_SESSION["opravnenia"]) && ($_SESSION["opravnenia"] >= Pouzivatel::ADMIN)) {
     $GLOBALS["ODKAZY"][] = array('href' => 'admin.php', 'text' => 'Admin', 'ikona' => 'fa-user-cog');
+}
+
+if (!isset($_SESSION["opravnenia"])) {
+    $GLOBALS["ODKAZY"][] = array('href' => 'prihlasenie.php', 'text' => 'Prihlásiť', 'ikona' => 'fa-sign-in-alt');
+} else {
+    $GLOBALS["ODKAZY"][] = array('href' => 'odhlasit.php', 'text' => 'Odhlásiť', 'ikona' => 'fa-sign-out-alt');
 }

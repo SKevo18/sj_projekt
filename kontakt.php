@@ -4,7 +4,6 @@ include_once '_inc/sablony/head.php';
 ?>
 
 <body>
-  <?php include_once '_inc/sablony/cookiesOkno.php'; ?>
   <?php include_once '_inc/sablony/header.php'; ?>
 
   <div class="col-8 mx-auto mt-5 pt-4">

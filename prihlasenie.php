@@ -1,8 +1,6 @@
 <?php
 require_once '_inc/config.php';
 include_once '_inc/sablony/head.php';
-
-session_start();
 ?>
 
 <body>

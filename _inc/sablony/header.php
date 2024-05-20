@@ -14,7 +14,7 @@
 
       <div class="collapse navbar-collapse" id="navigacia">
         <ul class="navbar-nav nav-underline me-auto">
-          <?= vykreslitOdkazy($GLOBALS["ODKAZY"]) ?>
+          <?= Odkaz::vykreslit($GLOBALS["ODKAZY"]) ?>
         </ul>
       </div>
     </div>
