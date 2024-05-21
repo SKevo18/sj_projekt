@@ -1,4 +1,5 @@
-<h2>Pouzivatelia</h2>
+<h2>Používatelia</h2>
+
 <?php
 $pouzivatelia = new Pouzivatel();
 $pouzivatelia = $pouzivatelia->vsetciPouzivatelia();

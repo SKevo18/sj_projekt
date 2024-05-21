@@ -1,5 +1,7 @@
 <?php
 require_once "_inc/config.php";
+require_once "redaktor_crud/_opravnenia.php";
+
 include_once '_inc/sablony/head.php';
 ?>
 
@@ -7,33 +9,32 @@ include_once '_inc/sablony/head.php';
   <?php include_once '_inc/sablony/header.php'; ?>
 
   <?php
-  $recept = new Recept();
-  $recept = $recept->recept($_GET["id"]);
+  if (isset($_GET["id"])) {
+    $recept = new Recept();
+    $recept = $recept->recept($_GET["id"]);
+  } else {
+    $recept = array(
+      "id" => "0",
+      "nazov" => "",
+      "popis" => "",
+      "postup" => "",
+      "suroviny" => array()
+    );
+  }
 
   if ($recept) {
   ?>
-    <div class="container py-4 mt-4">
-      <div class="my-4">
-        <h2 class="text-center"><?= $recept["nazov"]; ?></h2>
-        <p class="text-center"><i><?= $recept["popis"]; ?></i></p>
-      </div>
+    <form method="POST" action="redaktor_crud/recept.php" class="container py-4 mt-4">
+      <input type="hidden" name="id" value="<?= $recept["id"]; ?>">
 
-      <?php
-      if (isset($_SESSION["opravnenia"]) && ($_SESSION["opravnenia"] >= Pouzivatel::REDAKTOR)) {
-      ?>
-        <div class="d-flex gap-4 align-items-center my-3">
-          <a class="btn btn-primary" href="recept-crud.php?id=<?= $recept["id"]; ?>">Upraviť</a>
-          <form action="redaktor_crud/recept.php" method="POST">
-            <input type="hidden" name="id" value="<?= $recept["id"]; ?>">
-            <button type="submit" name="zmazat" class="btn btn-danger">Zmazať</button>
-        </div>
-      <?php
-      }
-      ?>
+      <div class="d-flex align-items-center gap-4 my-3">
+        <h3>Názov:</h3>
+        <input class="my-4 text-center" type="text" name="nazov" value="<?= $recept["nazov"]; ?>" />
+      </div>
 
       <div class="row">
         <div class="col-lg-5">
-          <img onerror="this.onerror=null; this.src='assets/img/recepty/0.png'" src="assets/img/recepty/<?= $recept["id"]; ?>.png" class="img-fluid rounded-start" alt="<?= $recept["nazov"]; ?>" />
+          <img src="assets/img/recepty/<?= $recept["id"]; ?>.png" class="img-fluid rounded-start" alt="<?= $recept["nazov"]; ?>" />
         </div>
 
         <div class="col-lg-6">
@@ -52,7 +53,7 @@ include_once '_inc/sablony/head.php';
                 <?php
                 foreach ($recept["suroviny"] as $surovina) {
                   echo "<tr>";
-                  echo "<th scope='row'>" . $surovina["nazov"] . "</th>";
+                  echo '<th scope=\"row\">' . $surovina['nazov'] . "</th>";
                   echo "<td>" . $surovina["mnozstvo"] . "</td>";
                   echo "<td>" . ($surovina["kcal"] != 0 ? $surovina["kcal"] . " kcal" : "-") . "</td>";
                   echo "<td>" . ($surovina["cena"] != 0 ? $surovina["cena"] . " €" : "-") . "</td>";
@@ -66,10 +67,17 @@ include_once '_inc/sablony/head.php';
       </div>
 
       <div class="mt-4">
-        <h3>Postup:</h3>
-        <p><?= str_replace("\n", "<br>", $recept["postup"]); ?></p>
+        <h3>Popis:</h3>
+        <textarea rows="2" style="width: 100%" name="popis"><?= $recept["popis"] ?></textarea>
       </div>
-    </div>
+
+      <div class="mt-4">
+        <h3>Postup:</h3>
+        <textarea rows="12" style="width: 100%" name="postup"><?= $recept["postup"] ?></textarea>
+      </div>
+
+      <input type="submit" name="<?= isset($_GET["id"]) ? 'upravit' : 'vytvorit' ?>" value="Uložiť" class="btn btn-primary">
+    </form>
   <?php
   } else {
   ?>

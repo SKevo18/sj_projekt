@@ -2,9 +2,6 @@
 
 class Recept extends Databaza
 {
-    /**
-     * Vráti všetky recepty.
-     */
     public function vsetkyRecepty(int $limit = null): array
     {
         return $this->fetchAll(
@@ -15,9 +12,6 @@ class Recept extends Databaza
         );
     }
 
-    /**
-     * Vráti konkrétny recept podľa ID.
-     */
     public function recept(int $id): array
     {
         $recept = $this->fetch("SELECT *
@@ -43,11 +37,6 @@ class Recept extends Databaza
         return $recept;
     }
 
-    /**
-     * Vytvorí nový recept.
-     * 
-     * `{ nazov, popis, postup }`
-     */
     public function vytvorRecept(array $data): void
     {
         $this->insert("recept", array(
@@ -57,9 +46,11 @@ class Recept extends Databaza
         ));
     }
 
-    /**
-     * Vykreslí zoznam receptov ako HTML.
-     */
+    public function upravRecept(int $id, array $data): void
+    {
+        $this->update("recept", $id, $data);
+    }
+
     public function vykresliZoznam(array $recepty): string
     {
         $html = '<div class="row g-4">';
@@ -69,7 +60,7 @@ class Recept extends Databaza
             <div class="card mb-3">
             <div class="row g-0">
                 <div class="col-4">
-                    <img width="267" src="assets/img/recepty/' . $recept["id"] . '.png" class="img-fluid rounded-start" alt="' . $recept["nazov"] . '" />
+                    <img onerror="this.onerror=null; this.src=\'assets/img/recepty/0.png\'" width="267" src="assets/img/recepty/' . $recept["id"] . '.png" class="img-fluid rounded-start" alt="' . $recept["nazov"] . '" />
                 </div>
 
                 <div class="col-8">
@@ -94,5 +85,10 @@ class Recept extends Databaza
         $html .= '</div>';
 
         return $html;
+    }
+
+    public function zmazRecept(int $id): void
+    {
+        $this->delete("recept", $id);
     }
 }

@@ -3,23 +3,25 @@ require_once "../_inc/config.php";
 require_once "_opravnenia.php";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $surovina = new Surovina();
+    $recept = new Recept();
+
     $data = array(
         "nazov" => htmlspecialchars($_POST["nazov"]),
-        "kcal" => htmlspecialchars($_POST["kcal"]),
-        "jednotka" => htmlspecialchars($_POST["jednotka"]),
-        "cena" => htmlspecialchars($_POST["cena"])
+        "popis" => htmlspecialchars($_POST["popis"]),
+        "postup" => htmlspecialchars($_POST["postup"]),
     );
 
     if (isset($_POST["vytvorit"])) {
-        $surovina->vytvorSurovinu($data);
+        $recept->vytvorRecept($data);
     } else if (isset($_POST["upravit"])) {
-        $surovina->upravSurovinu($_POST["id"], $data);
+        $recept->upravRecept($_POST["id"], $data);
+        header("Location: ../recept.php?id=" . $_POST["id"]);
+        die();
     } else if (isset($_POST["zmazat"])) {
-        $surovina->zmazSurovinu($_POST["id"]);
+        $recept->zmazRecept($_POST["id"]);
     }
 
-    header("Location: ../admin.php");
+    header("Location: ../recepty.php");
 } else {
     die("Nesprávna request metóda, podporuje iba POST.");
 }

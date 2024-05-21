@@ -5,9 +5,6 @@ class Pouzivatel extends Databaza
     final const REDAKTOR = 1;
     final const ADMIN = 2;
 
-    /**
-     * Vráti všetkých používateľov.
-     */
     public function vsetciPouzivatelia(): array
     {
         return $this->fetchAll(
@@ -16,9 +13,6 @@ class Pouzivatel extends Databaza
         );
     }
 
-    /**
-     * Skontroluje prihlasovacie údaje a vráti používateľa, inak `null`.
-     */
     public function prihlasit(string $pouzivatelske_meno, string $heslo): ?array
     {
         $pouzivatel = $this->fetch(
@@ -34,11 +28,6 @@ class Pouzivatel extends Databaza
         return null;
     }
 
-    /**
-     * Vytvorí nového používateľa. Heslo je hashované pomocou `PASSWORD_BCRYPT`.
-     * 
-     * `{ pouzivatelske_meno, email, heslo, opravnenia }`
-     */
     public function vytvorPouzivatela(array $data): void
     {
         $this->insert("pouzivatel", array(
@@ -48,25 +37,19 @@ class Pouzivatel extends Databaza
         ));
     }
 
-    /**
-     * Upraví používateľa.
-     * 
-     * `{ pouzivatelske_meno, email, heslo, opravnenia }`
-     */
     public function upravPouzivatela(int $id, array $data): void
     {
-        $this->update("pouzivatel", array(
+        $d = array(
             "pouzivatelske_meno" => $data["pouzivatelske_meno"],
-            "heslo" => password_hash($data["heslo"], PASSWORD_BCRYPT),
             "opravnenia" => $data["opravnenia"]
-        ), "`id` = $id");
+        );
+        if ($data["heslo"]) $d["heslo"] = password_hash($data["heslo"], PASSWORD_BCRYPT);
+
+        $this->update("pouzivatel", $id, $d);
     }
 
-    /**
-     * Zmaže používateľa.
-     */
     public function zmazPouzivatela(int $id): void
     {
-        $this->delete("pouzivatel", "`id` = $id");
+        $this->delete("pouzivatel", $id);
     }
 }

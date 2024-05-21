@@ -1,22 +1,25 @@
 <?php
 require_once "../_inc/config.php";
+require_once "_opravnenia.php";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $surovina = new Pouzivatel();
+    $pouzivatel = new Pouzivatel();
 
     $data = array(
-        "pouzivatelske_meno" => $_POST["pouzivatelske_meno"],
+        "pouzivatelske_meno" => htmlspecialchars($_POST["pouzivatelske_meno"]),
         "heslo" => $_POST["heslo"],
         "opravnenia" => $_POST["opravnenia"],
     );
 
     if (isset($_POST["vytvorit"])) {
-        $surovina->vytvorPouzivatela($data);
+        $pouzivatel->vytvorPouzivatela($data);
     } else if (isset($_POST["upravit"])) {
-        $surovina->upravPouzivatela($_POST["id"], $data);
+        $pouzivatel->upravPouzivatela($_POST["id"], $data);
     } else if (isset($_POST["zmazat"])) {
-        $surovina->zmazPouzivatela($_POST["id"]);
+        $pouzivatel->zmazPouzivatela($_POST["id"]);
     }
 
     header("Location: ../admin.php");
+} else {
+    die("Nesprávna request metóda, podporuje iba POST.");
 }

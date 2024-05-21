@@ -9,12 +9,12 @@ include_once '_inc/sablony/head.php';
     <div class="col-8 mx-auto mt-5 pt-4">
         <?php
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $pouzivatel = new Pouzivatel();
-            $pouzivatel = $pouzivatel->prihlasit($_POST["pouzivatelske_meno"], $_POST["heslo"]);
+            $surovina = new Pouzivatel();
+            $surovina = $surovina->prihlasit($_POST["pouzivatelske_meno"], $_POST["heslo"]);
 
-            if ($pouzivatel) {
-                $_SESSION["pouzivatelske_meno"] = $pouzivatel["pouzivatelske_meno"];
-                $_SESSION["opravnenia"] = $pouzivatel["opravnenia"];
+            if ($surovina) {
+                $_SESSION["pouzivatelske_meno"] = $surovina["pouzivatelske_meno"];
+                $_SESSION["opravnenia"] = $surovina["opravnenia"];
 
                 header("Location: index.php");
                 exit();

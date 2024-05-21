@@ -2,11 +2,6 @@
 
 class Surovina extends Databaza
 {
-    /**
-     * Vytvorí surovinu.
-     * 
-     * `{ nazov, kcal, jednotka, cena }`
-     */
     public function vytvorSurovinu(array $surovina): void
     {
         $this->insert("surovina", array(
@@ -17,21 +12,11 @@ class Surovina extends Databaza
         ));
     }
 
-    /**
-     * Upraví surovinu.
-     * 
-     * `{ nazov, kcal, jednotka, cena }`
-     */
     public function upravSurovinu(int $id, array $data): void
     {
-        $this->update("surovina", $data, "id = $id");
+        $this->update("surovina", $id, $data);
     }
 
-    /**
-     * Pridá surovinu k receptu.
-     * 
-     * `{ id (suroviny), mnozstvo }`
-     */
     public function pridajSurovinu(int $idRecept, array $surovina): void
     {
         $this->insert("surovina_recept", array(
@@ -41,19 +26,13 @@ class Surovina extends Databaza
         ));
     }
 
-    /**
-     * Vráti všetky suroviny.
-     */
     public function vsetkySuroviny(): array
     {
         return $this->fetchAll("SELECT * FROM `surovina`");
     }
 
-    /**
-     * Vymaže surovinu.
-     */
     public function zmazSurovinu(int $id): void
     {
-        $this->delete("surovina", "id = $id");
+        $this->delete("surovina", $id);
     }
 }
