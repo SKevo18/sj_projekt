@@ -43,6 +43,7 @@ include_once '_inc/sablony/head.php';
             <table class="table">
               <thead>
                 <tr>
+                  <th scope="col"></th>
                   <th scope="col">Názov</th>
                   <th scope="col">Množstvo</th>
                   <th scope="col">Kalórie</th>
@@ -52,12 +53,15 @@ include_once '_inc/sablony/head.php';
               <tbody>
                 <?php
                 foreach ($recept["suroviny"] as $surovina) {
-                  echo "<tr>";
-                  echo '<th scope=\"row\">' . $surovina['nazov'] . "</th>";
-                  echo "<td>" . $surovina["mnozstvo"] . "</td>";
-                  echo "<td>" . ($surovina["kcal"] != 0 ? $surovina["kcal"] . " kcal" : "-") . "</td>";
-                  echo "<td>" . ($surovina["cena"] != 0 ? $surovina["cena"] . " €" : "-") . "</td>";
-                  echo "</tr>";
+                ?>
+                  <tr>
+                    <th><input type="checkbox" checked /></th>
+                    <th scope="row"><?= $surovina['nazov'] ?></th>
+                    <td><input size="5" value="<?= $surovina['mnozstvo'] ?>" /></td>
+                    <td><input size="5" value="<?= $surovina['kcal'] ?>" /></td>
+                    <td><input size="5" value="<?= $surovina['cena'] ?>" /></td>
+                  </tr>
+                <?php
                 }
                 ?>
               </tbody>

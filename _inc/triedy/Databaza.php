@@ -2,7 +2,7 @@
 
 class Databaza
 {
-    private PDO $pripojenie;
+    protected PDO $pripojenie;
 
     public function __construct()
     {

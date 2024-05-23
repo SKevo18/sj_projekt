@@ -44,6 +44,18 @@ class Recept extends Databaza
             "popis" => $data["popis"],
             "postup" => $data["postup"]
         ));
+
+        if (isset($data["suroviny"])) {
+            $idRecept = $this->pripojenie->lastInsertId();
+
+            foreach ($data["suroviny"] as $surovina) {
+                $this->insert("surovina_recept", array(
+                    "id_recept" => $idRecept,
+                    "id_surovina" => $surovina["id"],
+                    "mnozstvo" => $surovina["mnozstvo"]
+                ));
+            }
+        }
     }
 
     public function upravRecept(int $id, array $data): void
