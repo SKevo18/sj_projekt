@@ -27,7 +27,7 @@ CREATE TABLE `surovina` (
  `nazov` varchar(30) NOT NULL,
  `kcal` smallint(5) unsigned NOT NULL,
  `jednotka` varchar(8) NOT NULL DEFAULT "g",
- `cena` decimal(3,2) DEFAULT NULL,
+ `cena` decimal(5,2) DEFAULT NULL,
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 

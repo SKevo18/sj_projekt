@@ -28,7 +28,7 @@ class Surovina extends Databaza
 
     public function vsetkySuroviny(): array
     {
-        return $this->fetchAll("SELECT * FROM `surovina`");
+        return $this->fetchAll("SELECT * FROM `surovina` ORDER BY `cena` DESC");
     }
 
     public function zmazSurovinu(int $id): void

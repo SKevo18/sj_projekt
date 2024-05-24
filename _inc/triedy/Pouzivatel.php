@@ -10,7 +10,7 @@ class Pouzivatel extends Databaza
     {
         return $this->fetchAll(
             "SELECT * FROM `pouzivatel`
-            ORDER BY `id` DESC"
+            ORDER BY `opravnenia` DESC"
         );
     }
 
