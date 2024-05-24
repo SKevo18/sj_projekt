@@ -6,3 +6,4 @@ require_once "triedy/Recept.php";
 require_once "triedy/Surovina.php";
 require_once "triedy/Pouzivatel.php";
 require_once "triedy/Odkaz.php";
+require_once "triedy/Qna.php";

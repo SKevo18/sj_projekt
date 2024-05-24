@@ -1,8 +1,8 @@
 <h2>Používatelia</h2>
 
 <?php
-$pouzivatelia = new Pouzivatel();
-$pouzivatelia = $pouzivatelia->vsetciPouzivatelia();
+$pouzivatel_obj = new Pouzivatel();
+$pouzivatelia = $pouzivatel_obj->vsetciPouzivatelia();
 ?>
 
 <table class="table">
@@ -16,7 +16,7 @@ $pouzivatelia = $pouzivatelia->vsetciPouzivatelia();
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($pouzivatelia as $pouzivatel) : ?>
+        <?php foreach ($pouzivatelia as $pouzivatel) { ?>
             <tr>
                 <form action="admin_crud/pouzivatel.php" method="POST">
                     <th scope="row"><input type="text" readonly size="2" name="id" value="<?= $pouzivatel["id"] ?>"></th>
@@ -35,7 +35,7 @@ $pouzivatelia = $pouzivatelia->vsetciPouzivatelia();
                     </td>
                 </form>
             </tr>
-        <?php endforeach; ?>
+        <?php }; ?>
         <tr>
             <form action="admin_crud/pouzivatel.php" method="POST">
                 <th scope="row">Nový</th>

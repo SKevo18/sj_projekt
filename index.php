@@ -50,66 +50,33 @@ include_once '_inc/sablony/head.php';
     ?>
   </div>
 
+  <!-- QnA -->
   <div class="container-fluid bg-primary text-bg-dark py-5">
     <div class="container">
       <h2 class="mb-4">Často kladené otázky</h2>
 
       <div class="accordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#otazka1" aria-expanded="false" aria-controls="otazka1">
-              Odkadiaľ sa berú obrázky pre rozličné recepty?
-            </button>
-          </h2>
-          <div id="otazka1" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong>
-                Všetky obrázky na stránkach majú iba ilustračný charakter
-              </strong>
-              a sú buď to
-              <ol class="mt-2">
-                <li>
-                  generované pomocou umelej inteligencie (DALLE&bullet;3),
-                  alebo
-                </li>
-                <li>
-                  stiahnuté z bezplatných
-                  <a href="https://unsplash.com/" target="_blank">online zdrojov</a>.
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
+        <?php
+        $qna_obj = new Qna();
+        $qna = $qna_obj->vsetkyQna();
 
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#otazka2" aria-expanded="false" aria-controls="otazka2">
-              Sú recepty na tejto stránke skutočné?
-            </button>
-          </h2>
-          <div id="otazka2" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong>Áno</strong>, všetky recepty pochádzajú z našej rodinnej
-              knihy receptov, ktorá sa už niekoľko generácií dedí v našej
-              rodine.
+        for ($i = 0; $i < count($qna); $i++) {
+        ?>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#otazka<?= $i ?>" aria-expanded="false" aria-controls="otazka<?= $i ?>">
+                <?= $qna[$i]["otazka"] ?>
+              </button>
+            </h2>
+            <div id="otazka<?= $i ?>" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <?= $qna[$i]["odpoved"] ?>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#otazka3" aria-expanded="false" aria-controls="otazka3">
-              Viem prispieť vlastným receptom?
-            </button>
-          </h2>
-          <div id="otazka3" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              Ak máte nejaké nápady na recepty, ktoré by ste chceli zverejniť
-              na našej stránke, neváhajte nás kontaktovať prostredníctvom
-              nášho <a href="kontakt.php">kontaktného formulára</a>!
-            </div>
-          </div>
-        </div>
+        <?php
+        }
+        ?>
       </div>
     </div>
   </div>

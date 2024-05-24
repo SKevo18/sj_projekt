@@ -14,7 +14,10 @@
 
     <div class="align-self-center text-center">
       <p>&copy; Kevin Svitač <?= date('Y'); ?>. Všetky práva vyhradené.</p>
-      <p><i>Táto stránka je súčasťou projektu pre predmet "Skriptovacie jazyky" na UKF.</i></p>
+      <p>
+        <i>Táto stránka je súčasťou projektu pre predmet "Skriptovacie jazyky" na UKF.</i><br/>
+        Vaša aktuálna IP adresa: <b><?= $_SERVER["REMOTE_ADDR"] ?></b>
+      </p>
     </div>
   </div>
 </footer>

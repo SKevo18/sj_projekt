@@ -48,3 +48,10 @@ CREATE TABLE `pouzivatel` (
  `opravnenia` tinyint(2) NOT NULL DEFAULT 1 COMMENT '1 - Redaktor (vie upravovať recepty);\r\n2 - Administrátor (má plný prístup k admin rozhraniu, vie upravovať recepty, suroviny a používateľov)',
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci
+
+CREATE TABLE `qna` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `otazka` varchar(255) NOT NULL,
+ `odpoved` varchar(255) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci

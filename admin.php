@@ -22,6 +22,7 @@ include_once '_inc/sablony/head.php';
         <?php
         include_once '_inc/sablony/admin/suroviny.php';
         include_once '_inc/sablony/admin/pouzivatelia.php';
+        include_once '_inc/sablony/admin/qna.php';
         ?>
     </div>
 

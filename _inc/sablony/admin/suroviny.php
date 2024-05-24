@@ -1,7 +1,7 @@
 <h2>Suroviny</h2>
 <?php
-$suroviny = new Surovina();
-$suroviny = $suroviny->vsetkySuroviny();
+$surovina_obj = new Surovina();
+$suroviny = $surovina_obj->vsetkySuroviny();
 ?>
 
 <table class="table">
@@ -16,7 +16,7 @@ $suroviny = $suroviny->vsetkySuroviny();
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($suroviny as $surovina) : ?>
+        <?php foreach ($suroviny as $surovina) { ?>
             <tr>
                 <form action="admin_crud/surovina.php" method="POST">
                     <th scope="row"><input type="text" readonly size="2" name="id" value="<?= $surovina["id"] ?>"></th>
@@ -30,7 +30,7 @@ $suroviny = $suroviny->vsetkySuroviny();
                     </td>
                 </form>
             </tr>
-        <?php endforeach; ?>
+        <?php }; ?>
         <tr>
             <form action="admin_crud/surovina.php" method="POST">
                 <th scope="row">Nová</th>
