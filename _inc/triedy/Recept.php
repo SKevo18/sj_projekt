@@ -17,6 +17,7 @@ class Recept extends Databaza
         $recept = $this->fetch("SELECT *
             FROM `recept`
             WHERE `id` = :id
+            LIMIT 0, 1
         ", array(
             "id" => $id
         ));
