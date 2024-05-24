@@ -8,7 +8,14 @@ include_once '_inc/sablony/head.php';
 
   <div class="container py-4 mt-4">
     <h2 class="my-4 text-center">Zoznam receptov</h2>
-    <a class="btn btn-primary my-3" href="recept-crud.php">Vytvoriť nový</a>
+
+    <?php
+    if (isset($_SESSION["opravnenia"]) && ($_SESSION["opravnenia"] >= Pouzivatel::REDAKTOR)) {
+    ?>
+      <a class="btn btn-primary my-3" href="recept-crud.php">Vytvoriť nový</a>
+    <?php
+    }
+    ?>
 
     <?php
     $recepty = new Recept();

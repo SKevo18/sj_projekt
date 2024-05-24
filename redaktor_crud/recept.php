@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else if (isset($_POST["upravit"])) {
         $recept->upravRecept($_POST["id"], $data);
         header("Location: ../recept.php?id=" . $_POST["id"]);
-        die();
+        exit();
     } else if (isset($_POST["zmazat"])) {
         $recept->zmazRecept($_POST["id"]);
     }

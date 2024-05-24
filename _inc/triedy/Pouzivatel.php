@@ -2,6 +2,7 @@
 
 class Pouzivatel extends Databaza
 {
+    final const NORMALNY = 0;
     final const REDAKTOR = 1;
     final const ADMIN = 2;
 
